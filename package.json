@@ -1,0 +1,25 @@
+{
+  "name": "nexlayer-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Nexlayer cloud platform",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx index.ts"
+  },
+  "keywords": ["mcp", "nexlayer", "deployment", "cloud"],
+  "author": "Stephane Paul (stephane@remediumdev.com)",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.1",
+    "axios": "^1.10.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "tsx": "^4.0.0"
+  }
+}
