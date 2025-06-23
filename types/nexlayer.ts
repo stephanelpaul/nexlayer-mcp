@@ -28,6 +28,54 @@ export interface SecretConfig {
   fileName: string;
 }
 
+// Local file generation interfaces
+export interface GenerateDockerfileParams {
+  name: string;
+  type: 'node' | 'python' | 'go' | 'rust' | 'nextjs' | 'react' | 'vue' | 'angular' | 'next' | 'php' | 'java' | 'dotnet' | 'custom';
+  baseImage?: string;
+  port?: number;
+  buildCommand?: string;
+  startCommand?: string;
+  dependencies?: string[];
+  customDockerfile?: string;
+}
+
+export interface GenerateNexlayerYamlParams {
+  applicationName: string;
+  pods: PodConfig[];
+  outputPath?: string;
+}
+
+export interface GenerateFullStackParams {
+  appName: string;
+  frontend: {
+    type: 'nextjs' | 'react' | 'vue' | 'angular';
+    port?: number;
+  };
+  backend: {
+    type: 'node' | 'python' | 'go' | 'rust';
+    port?: number;
+    database?: boolean;
+  };
+  database?: {
+    type: 'postgres' | 'mysql' | 'mongodb';
+    port?: number;
+  };
+  openai?: {
+    enabled: boolean;
+    apiKey?: string;
+  };
+}
+
+export interface FileGenerationResult {
+  files: {
+    name: string;
+    content: string;
+    path: string;
+  }[];
+  instructions: string;
+}
+
 // API Request/Response types based on actual Nexlayer API
 export interface StartDeploymentParams {
   yamlContent: string;
